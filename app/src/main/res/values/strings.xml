@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DaggerMigrateTest</string>
+    <string name="mock_type_text">This is %1$s implementation</string>
+</resources>
