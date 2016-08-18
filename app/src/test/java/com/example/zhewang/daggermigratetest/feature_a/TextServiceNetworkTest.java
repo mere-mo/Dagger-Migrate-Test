@@ -31,7 +31,7 @@ public class TextServiceNetworkTest {
 
     @Before
     public void setup(){
-        Services.initialize(new TestModule()).inject(this);
+//        Services.initialize(new TestModule()).inject(this);
     }
 
     @Inject

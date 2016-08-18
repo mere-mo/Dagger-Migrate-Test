@@ -7,17 +7,20 @@ import com.example.zhewang.daggermigratetest.modules.TextServiceModule;
 import com.example.zhewang.daggermigratetest.modules.ImageServiceModule;
 import com.example.zhewang.daggermigratetest.views.MainActivity;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
 /**
  * Application module which includes all other modules
  */
-@Module(
+@Module
+        /*(
         includes = {TextServiceModule.class, ImageServiceModule.class},
         injects = {App.class, MainActivity.class},
         library = true
-)
+)*/
 public class AppModule {
     private final Context mContext;
 
@@ -29,7 +32,7 @@ public class AppModule {
         mContext = context;
     }
 
-    @Provides
+    @Provides @Singleton
     Context providesContext() {
         return mContext.getApplicationContext();
     }

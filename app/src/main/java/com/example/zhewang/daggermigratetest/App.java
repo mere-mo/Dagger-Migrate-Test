@@ -13,7 +13,8 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Services.initialize(getModule()).inject(this);
+//        Services.initialize(getModule()).inject(this);
+        Services.init().inject(this);
     }
 
     protected Object getModule(){

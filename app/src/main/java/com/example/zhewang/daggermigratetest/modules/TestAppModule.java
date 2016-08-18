@@ -7,11 +7,11 @@ import dagger.Module;
 /**
  * Created by zhe.wang on 8/2/16.
  */
-@Module(
+@Module/*(
         injects = TestApp.class,
         includes = AppModule.class,
         library = true,
         overrides = true
-)
+)*/
 public class TestAppModule {
 }

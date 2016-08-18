@@ -9,6 +9,6 @@ import com.example.zhewang.daggermigratetest.Services;
  */
 public class BaseFragment extends DialogFragment {
     public BaseFragment(){
-        Services.getGlobalGraph().inject(this);
+//        Services.getGlobalGraph().inject(this);
     }
 }

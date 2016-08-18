@@ -6,6 +6,6 @@ import com.example.zhewang.daggermigratetest.Services;
 
 public class BaseActivity extends AppCompatActivity {
     public BaseActivity(){
-        Services.getGlobalGraph().inject(this);
+//        Services.getGlobalGraph().inject(this);
     }
 }

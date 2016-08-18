@@ -6,6 +6,7 @@ import com.example.zhewang.daggermigratetest.MockPreferences;
 import com.example.zhewang.daggermigratetest.feature_a.TextService;
 import com.example.zhewang.daggermigratetest.feature_a.TextServiceMock;
 import com.example.zhewang.daggermigratetest.feature_a.TextServiceNetwork;
+import com.example.zhewang.daggermigratetest.scopes.PerActivity;
 import com.example.zhewang.daggermigratetest.views.TextFragment;
 
 import javax.inject.Named;
@@ -18,11 +19,11 @@ import dagger.Provides;
 /**
  * Module for {@link TextService}
  */
-@Module(
+@Module/*(
         injects = TextFragment.class,
         library = true,
         complete = false
-)
+)*/
 public class TextServiceModule {
 
     @Provides
@@ -30,24 +31,27 @@ public class TextServiceModule {
         return new MockPreferences(context);
     }
 
-    @Singleton
+
     @Provides
+    @PerActivity
     TextService providesTextService(MockPreferences preferences,
                                     @Named("network") Provider<TextService> networkImpl,
                                     @Named("mock") Provider<TextService> mockImpl) {
         return preferences.getMockValue() ? mockImpl.get() : networkImpl.get();
     }
 
-    @Singleton
+
     @Provides
     @Named("network")
+    @PerActivity
     TextService providesTextServiceNetwork(TextServiceNetwork network) {
         return network;
     }
 
-    @Singleton
+
     @Provides
     @Named("mock")
+    @PerActivity
     TextService providesTextServiceMock(TextServiceMock mock) {
         return mock;
     }
