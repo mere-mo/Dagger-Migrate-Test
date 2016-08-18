@@ -30,8 +30,13 @@ public class TextFragment extends BaseFragment{
 
     View mRootView;
 
+    private static TextFragment mTextFragment;
+
     public static TextFragment newInstance() {
-        return new TextFragment();
+        if (mTextFragment == null) {
+            mTextFragment = new TextFragment();
+        }
+        return mTextFragment;
     }
 
     @Override

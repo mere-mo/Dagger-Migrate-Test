@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.example.zhewang.daggermigratetest.MockPreferences;
 import com.example.zhewang.daggermigratetest.R;
+import com.example.zhewang.daggermigratetest.Services;
 
 import javax.inject.Inject;
 
@@ -21,24 +22,34 @@ public class MainActivity extends BaseActivity {
     @Inject
     MockPreferences mPref;
 
+    private TextFragment mTextFragment;
+
+    private ImageFragment mImageFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         ButterKnife.inject(this);
+
+        mTextFragment = TextFragment.newInstance();
+        mImageFragment = ImageFragment.newInstance();
+        Services.getTextServiceComponent().inject(mTextFragment);
+        Services.getImageServiceComponent().inject(mImageFragment);
     }
 
     @OnClick(R.id.text_service_button)
     public void onTextServiceClick() {
-        TextFragment fragment = TextFragment.newInstance();
-        fragment.show(getFragmentManager(), TextFragment.TAG);
+//        TextFragment fragment = TextFragment.newInstance();
+//        fragment.show(getFragmentManager(), TextFragment.TAG);
+        mTextFragment.show(getFragmentManager(), TextFragment.TAG);
     }
 
     @OnClick(R.id.image_service_button)
     public void onImageServiceClick() {
-        ImageFragment fragment = ImageFragment.newInstance();
-        fragment.show(getFragmentManager(), ImageFragment.TAG);
-
+//        ImageFragment fragment = ImageFragment.newInstance();
+//        fragment.show(getFragmentManager(), ImageFragment.TAG);
+        mImageFragment.show(getFragmentManager(), ImageFragment.TAG);
     }
 
     @OnClick(R.id.switch_button)

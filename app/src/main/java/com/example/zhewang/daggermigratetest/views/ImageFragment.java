@@ -29,8 +29,13 @@ public class ImageFragment extends BaseFragment {
     @InjectView(R.id.image_service)
     ImageView mImage;
 
+    private static ImageFragment mImageFragment;
+
     public static ImageFragment newInstance() {
-        return new ImageFragment();
+        if (mImageFragment == null) {
+            mImageFragment = new ImageFragment();
+        }
+        return mImageFragment;
     }
 
     @Nullable

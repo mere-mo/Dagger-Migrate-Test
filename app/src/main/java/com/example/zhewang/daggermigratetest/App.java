@@ -14,7 +14,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 //        Services.initialize(getModule()).inject(this);
-        Services.init().inject(this);
+        Services.init(this).inject(this);
     }
 
     protected Object getModule(){
