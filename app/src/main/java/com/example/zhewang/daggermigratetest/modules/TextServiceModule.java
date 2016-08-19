@@ -26,10 +26,10 @@ import dagger.Provides;
 )*/
 public class TextServiceModule {
 
-    @Provides
-    MockPreferences providesMockPreferences(Context context){
-        return new MockPreferences(context);
-    }
+//    @Provides
+//    MockPreferences providesMockPreferences(Context context){
+//        return new MockPreferences(context);
+//    }
 
 
     @Provides

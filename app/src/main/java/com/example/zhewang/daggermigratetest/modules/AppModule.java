@@ -2,10 +2,7 @@ package com.example.zhewang.daggermigratetest.modules;
 
 import android.content.Context;
 
-import com.example.zhewang.daggermigratetest.App;
-import com.example.zhewang.daggermigratetest.modules.TextServiceModule;
-import com.example.zhewang.daggermigratetest.modules.ImageServiceModule;
-import com.example.zhewang.daggermigratetest.views.MainActivity;
+import com.example.zhewang.daggermigratetest.MockPreferences;
 
 import javax.inject.Singleton;
 
@@ -35,5 +32,10 @@ public class AppModule {
     @Provides @Singleton
     Context providesContext() {
         return mContext.getApplicationContext();
+    }
+
+    @Provides @Singleton
+    MockPreferences providesMockPreferences() {
+        return new MockPreferences(mContext);
     }
 }

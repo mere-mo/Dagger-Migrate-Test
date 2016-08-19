@@ -5,11 +5,9 @@ import com.example.zhewang.daggermigratetest.feature_b.ImageService;
 import com.example.zhewang.daggermigratetest.feature_b.ImageServiceMock;
 import com.example.zhewang.daggermigratetest.feature_b.ImageServiceNetwork;
 import com.example.zhewang.daggermigratetest.scopes.PerActivity;
-import com.example.zhewang.daggermigratetest.views.ImageFragment;
 
 import javax.inject.Named;
 import javax.inject.Provider;
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -24,7 +22,8 @@ import dagger.Provides;
 )*/
 public class ImageServiceModule {
 
-    @Provides @PerActivity
+    @Provides
+    @PerActivity
     ImageService providesImageService(MockPreferences preferences,
                                       @Named("network") Provider<ImageService> networkImpl,
                                       @Named("mock") Provider<ImageService> mockImpl) {

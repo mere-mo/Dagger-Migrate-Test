@@ -3,7 +3,9 @@ package com.example.zhewang.daggermigratetest.components;
 import android.content.Context;
 
 import com.example.zhewang.daggermigratetest.App;
+import com.example.zhewang.daggermigratetest.MockPreferences;
 import com.example.zhewang.daggermigratetest.modules.AppModule;
+import com.example.zhewang.daggermigratetest.views.MainActivity;
 
 import javax.inject.Singleton;
 
@@ -16,5 +18,7 @@ import dagger.Component;
 @Component(modules = {AppModule.class})
 public interface AppComponent {
     void inject(App app);
+    void inject(MainActivity activity);
     Context getContext();
+    MockPreferences getMockPreferences();
 }

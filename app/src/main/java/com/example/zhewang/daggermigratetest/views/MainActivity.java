@@ -36,6 +36,7 @@ public class MainActivity extends BaseActivity {
         mImageFragment = ImageFragment.newInstance();
         Services.getTextServiceComponent().inject(mTextFragment);
         Services.getImageServiceComponent().inject(mImageFragment);
+        Services.getAppComponent().inject(this);
     }
 
     @OnClick(R.id.text_service_button)
