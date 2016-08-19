@@ -65,8 +65,6 @@ public class Services {
         mAppComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(context))
                 .build();
-//        mImageServiceComponent = DaggerImageServiceComponent;
-//        mTextServiceComponent = ;
         return mAppComponent;
     }
 }
